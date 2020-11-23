@@ -6,6 +6,8 @@ all:
 	g++ -g -Wall -Wformat -lSDL2 -c -o imgui_widgets.o imgui_widgets.cpp
 	g++ -g -Wall -Wformat -lSDL2 -c -o imgui_impl_sdl.o imgui_impl_sdl.cpp
 	g++ -g -Wall -Wformat -lSDL2 -c -o imgui_impl_vulkan.o imgui_impl_vulkan.cpp
-	g++ -o example_sdl_vulkan main.o imgui.o imgui_demo.o imgui_draw.o imgui_widgets.o imgui_impl_sdl.o imgui_impl_vulkan.o -g -Wall -Wformat -lSDL2  -lvulkan -ldl
+	g++ -g -Wall -Wformat -c -o implot.o implot.cpp
+	g++ -g -Wall -Wformat -c -o implot_items.o implot_items.cpp
+	g++ -o example_sdl_vulkan main.o imgui.o imgui_demo.o imgui_draw.o imgui_widgets.o imgui_impl_sdl.o imgui_impl_vulkan.o implot.o implot_items.o -g -Wall -Wformat -lSDL2  -lvulkan -ldl
 clean:
 	rm *.o example_sdl_vulkan imgui.ini
